@@ -7,11 +7,11 @@ from scipy.linalg import logm
 from simulate_algorithm import format_number
 from generate_VTA_list import exact, SU2_automated
 
-def spectrum(operator_list, Jx, Jy, Jz, \
+def spectrum(N_qubits, operator_list, Jx, Jy, Jz, \
              α_start, α_end, α_steps, Es, \
              k_start, k_end, k_steps, \
              tolerance, asymptotes, \
-             current_directory, \
+             directory, \
              loc = 'upper right', \
              VTA_type = 'approximate', \
              log = True, fontsize = 9, ncol = 3, \
@@ -122,7 +122,7 @@ def spectrum(operator_list, Jx, Jy, Jz, \
             raise ValueError('Please enter a valid VTA_type and log type')
 
         # create name for png file 
-        parent_dir = f'{current_directory}/data/λ={round(λ, 3)}/{sub_folder}'
+        parent_dir = f'{directory}/data/{N_qubits}_sites/λ={round(λ, 3)}/{sub_folder}'
 
         # Check if the directory already exists
         if not os.path.exists(parent_dir):
@@ -139,7 +139,7 @@ def sweep_spectra(N_qubits, Jx, Jy, Jz, periodic_bc, \
                      Es_start, Es_end, Es_gradation, \
                      k_start, k_end, k_steps, \
                      tolerance, asymptotes, \
-                     current_directory, \
+                     directory, \
                      VTA_type = 'approximate', log = True, \
                      fontsize = 9, ncol = 3, loc = 'upper right', \
                      savefile = False, return_op_list = True):
@@ -178,7 +178,7 @@ def sweep_spectra(N_qubits, Jx, Jy, Jz, periodic_bc, \
                      α_start, α_end, α_steps, Es, \
                      k_start, k_end, k_steps, \
                      tolerance, asymptotes, \
-                     current_directory, \
+                     directory, \
                      VTA_type = VTA_type, log = log, \
                      fontsize = fontsize, ncol = ncol, loc = loc, \
                      savefile = savefile)
@@ -199,7 +199,7 @@ def sweep_spectra(N_qubits, Jx, Jy, Jz, periodic_bc, \
                      α_start, α_end, α_steps, Es, \
                      k_start, k_end, k_steps, \
                      tolerance, asymptotes, \
-                     current_directory, \
+                     directory, \
                      VTA_type = VTA_type, log = log, \
                      fontsize = fontsize, ncol = ncol, loc = loc, \
                      savefile = savefile)
@@ -223,7 +223,7 @@ def sweep_spectra(N_qubits, Jx, Jy, Jz, periodic_bc, \
                      α_start, α_end, α_steps, Es, \
                      k_start, k_end, k_steps, \
                      tolerance, asymptotes, \
-                     current_directory, \
+                     directory, \
                      VTA_type = VTA_type, log = log, \
                      fontsize = fontsize, ncol = ncol, loc = loc, \
                      savefile = savefile)
@@ -244,7 +244,7 @@ def sweep_spectra(N_qubits, Jx, Jy, Jz, periodic_bc, \
                      α_start, α_end, α_steps, Es, \
                      k_start, k_end, k_steps, \
                      tolerance, asymptotes, \
-                     current_directory, \
+                     directory, \
                      VTA_type = VTA_type, log = log, \
                      fontsize = fontsize, ncol = ncol, loc = loc, \
                      savefile = savefile)
